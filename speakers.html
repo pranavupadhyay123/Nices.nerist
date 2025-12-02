@@ -2,109 +2,369 @@
 <html lang="en">
 
 <head>
-<link rel="icon" type="image/png" href="./logo.png">
-
+    <link rel="icon" type="image/png" href="./logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <title>RACISE 2024 - NERIST</title>
+    <title>RAMEA 2026 - NERIST</title>
+    <style>
+        .speaker-card {
+            transition: all 0.3s ease;
+        }
+        .speaker-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .speaker-img {
+            transition: all 0.3s ease;
+        }
+        .speaker-card:hover .speaker-img {
+            transform: scale(1.05);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            border-radius: 2px;
+        }
+    </style>
 </head>
 
-<body>
-<nav class="absolute top-0 w-full bg-white border-gray-200 border-2 dark:bg-gray-900 z-50">
+<body class="bg-gray-50">
+    <nav class="absolute top-0 w-full bg-white border-gray-200 border-2 dark:bg-gray-900 z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                        <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-
+            <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="logo.png" alt="Logo" class="h-8 w-auto">
-                <span class="self-center text-2xl font-bold whitespace-nowrap text-blue-700 dark:text-white">RACISE
-                    2024</span>
+                <span class="self-center text-2xl font-bold whitespace-nowrap text-blue-700 dark:text-white">RAMEA 2026</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul
-                    class="font-medium flex flex-col md:p-0 mt-4 bg-gray-50 md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>
-                        <a href="index.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tracks.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Tracks
-                        </a>
-                    </li>
+                <ul class="font-medium flex flex-col md:p-0 mt-4 bg-gray-50 md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li><a href="index.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Home</a></li>
+                    <li><a href="tracks.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Tracks</a></li>
                     <li class="relative">
-                        <a href="./cfp.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Call for Papers
-                        </a>
-                        <ul class="absolute hidden bg-white text-gray-900 pt-1 w-32 border border-gray-200 z-10"
-                            id="author-dropdown">
-                            <li><a href="./authorguideline.html" class="block px-4 py-2 hover:bg-gray-200">Authors
-                                    Guidelines</a></li>
+                        <a href="./cfp.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Call for Papers</a>
+                        <ul class="absolute hidden bg-white text-gray-900 pt-1 w-32 border border-gray-200 z-10" id="author-dropdown">
+                            <li><a href="./authorguideline.html" class="block px-4 py-2 hover:bg-gray-200">Authors Guidelines</a></li>
                         </ul>
                     </li>
-                    <style>
-                        li.relative:hover #author-dropdown {
-                            display: block;
-                        }
-                    </style>
-
-                    <li>
-                        <a href="organising.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Organizing Committee
-                        </a>
-                    </li>
-                    <li>
-                        <a href="awards.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md ">Awards</a>
-                    </li>
-                    <li>
-                        <a href="speakers.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Speakers
-                        </a>
-                    </li>
-                    <li>
-                        <a href="objective.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Objectives
-                        </a>
-                    </li>
-                    <li>
-                        <a href="register.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Register
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html"
-                            class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">
-                            Contacts
-                        </a>
-                    </li>
+                    <li><a href="organising.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Organizing Committee</a></li>
+                    <li><a href="awards.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Awards</a></li>
+                    <li><a href="speakers.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Speakers</a></li>
+                    <li><a href="register.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Register</a></li>
+                    <li><a href="contact.html" class="text-md font-bold block text-gray-900 md:border-0 dark:text-white hover:text-white hover:bg-blue-700 md:dark:hover:text-blue-500 md:dark:hover:bg-transparent px-2 py-1 rounded-md">Contacts</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="text-center relative mt-32">
-        <h1>To Be Updated Soon</h1>
-    </div>
-</body>
+    <style>
+        li.relative:hover #author-dropdown {
+            display: block;
+        }
+    </style>
 
+    <!-- Hero Section -->
+    <div class="pt-32 pb-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 section-title">Distinguished Speakers</h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
+                Join us for inspiring keynotes from world-renowned experts in their respective fields
+            </p>
+        </div>
+    </div>
+
+    <!-- Keynote Speakers Section -->
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-3 section-title">Keynote Speakers</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Leading voices shaping the future of research and innovation</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Speaker 1 -->
+            <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker1.jpg" alt="Prof. Mahdi Bodaghi" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Prof. Mahdi Bodaghi</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Professor of Advanced Manufacturing and Materials Science
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> University of Technology
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> 4D Printing, Smart Materials, Metamaterials
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker 2 -->
+            <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker2.jpg" alt="Prof. Jane Doe" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Prof. Jane Doe</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Distinguished Professor of Engineering Sciences
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> International Research Institute
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Sustainable Engineering, Innovation
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker 3 -->
+            <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker3.jpg" alt="Dr. John Smith" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. John Smith</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Senior Research Scientist and Department Head
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Global Research Center
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Applied Sciences, Technology Transfer
+                        </p>
+                    </div>
+                </div>
+            </div>
+                       <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker 4.jpg" alt="Prof. Sunkulp Goel" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Prof. Sunkulp Goel</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        NJUST, Nanjing, China
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Nanjing University of Science and Technology (NJUST)
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Microstructure & Mechanical Behavior of Materials, 
+                                                                                        Materials Processing & Characterization, 
+                                                                                        Advanced Materials & Mechanical Testing, 
+                                                                                        SEM / Electron Microscopy & Fracture Mechanics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+                       <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker 5.jpg" alt="Prof. M. V. Reddy" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Prof. M.V. Reddy</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Institute of Research Hydro-Quebec, Canada
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Center of Excellence in Transportation Electrification and Energy Storage (CETEES),
+                                                                                          Hydro-Québec Research Institute, Canada
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Energy storage materials, lithium/sodium-ion batteries, supercapacitors, and advanced electrochemical
+                                                                                        materials.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+                       <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker 6.jpg" alt="Dr. Zviad Gviniashvili" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Zviad Gviniashvili</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Georgian Technical University, Georgia 
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Georgian Technical University, Tbilisi, Georgia
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Interdisciplinary Studies in Education, Research & Technology,
+                                                                                        Scientific Conference Organization & Editorial Work
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+                       <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker 7.jpg" alt="Dr. Geethapriyan Thangamani" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Geethapriyan Thangamani</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        Politecnico Di Torino, Italy
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span>Fixed-term Assistant Professor, Department of Applied Science and Technology (DISAT), Politecnico di Torino, Italy
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Additive Manufacturing & Metallic Materials,
+                                                                                        Advanced Materials Processing,
+                                                                                        Shape Memory Alloys,
+                                                                                        Micro- and Nano-machining; Electrochemical Machining Processes,
+                                                                                        Experimental Optimization & Design of Experiments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+                       <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker 8.jpg" alt="Prof. Pradeep Kumar" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Prof. Pradeep Kumar</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            IIT Roorkee
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Professor, Department of Mechanical & Industrial Engineering, Indian Institute of Technology Roorkee, Uttarakhand, India
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Advanced & Non-conventional Manufacturing Processes (e.g. Micro-Machining, Hybrid Machining),
+                                                                                        Quality Engineering & Reliability, including Taguchi Methods, Six Sigma, SPC Tools,
+                                                                                        Supply Chain Management, Global & Green Supply Chains,
+                                                                                        Metal Casting & Joining, including Simulation, Vacuum Sealed / Investment Casting, Microwave Joining.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+                      <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="speaker 9.jpg" alt="Dr. Jose Immanuel R." class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Jose Immanuel R.</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            IIT Bhilai
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Assistant Professor, Department of Mechanical Engineering, Indian Institute of Technology Bhilai, Chhattisgarh, India
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Material development & characterization: lightweight alloys & composites, high-entropy & intermetallic alloys,
+                                                                                        Severe plastic deformation & advanced processing techniques (e.g. friction stir, additive manufacturing, cryo-rolling),
+                                                                                        Machinability, tribological & corrosion performance, microstructure & texture analysis,
+                                                                                        Computational modelling in manufacturing & multiscale materials modelling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+                       <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="Speaker10.jpg" alt="Dr. Sajan kapil" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Sajan kapil</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        IIT Guwahati
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Assistant Professor, Department of Mechanical Engineering, Indian Institute of Technology Guwahati, Assam, India
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Additive Manufacturing (3D Printing),Hybrid Manufacturing, CNC Machining, Welding & Cladding Processes,
+                                                                                        Manufacturing Automation, Rapid Prototyping, CAD/CAM, Educational Outreach.
+                         </p>                                                                                                                                        
+                    </div>
+                </div>
+            </div>
+
+                          <div class="speaker-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-hidden">
+                    <img src="Speaker 11.jpg" alt="Dr. Navneet Khanna" class="speaker-img w-full h-80 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Navneet Khanna</h3>
+                    <p class="text-blue-600 font-semibold mb-3">Keynote Speaker</p>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        IITRM Gujarat
+                    </p>
+                    <div class="border-t pt-4">
+                        <p class="text-sm text-gray-500 mb-2">
+                            <span class="font-semibold text-gray-700">Affiliation:</span> Associate Professor,Department of Mechanical and Aerospace Engineering, Institute of Infrastructure Technology
+                                                                                          Research and Management (IITRAM), Ahmedabad, Gujarat, India
+                        </p>
+                        <p class="text-sm text-gray-500">
+                            <span class="font-semibold text-gray-700">Expertise:</span> Sustainable Manufacturing, Additive Manufacturing, Materials Science, Research Leadership,
+                                                                                        Editorial Contributions, Recognition                                                               
+                                                                                            
+                         </p>                                                                                                                                        
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- Call to Action -->
+        <div class="bg-blue-50 rounded-2xl p-8 text-center border-2 border-blue-100">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">Don't Miss These Insights</h3>
+            <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+                Register now to attend exclusive keynote sessions and interact with leading experts in the field
+            </p>
+            <a href="register.html" class="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+                Register for RAMEA 2026
+            </a>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
 </html>
